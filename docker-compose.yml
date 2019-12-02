@@ -1,0 +1,25 @@
+version: "3"
+
+volumes:
+  data:
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+
+  postgres:
+    container_name: postgres-bearing
+    image: postgres:12.1
+    ports:
+      - "5432:5432"
+    env_file: .env
+    volumes:
+      - "data:/var/lib/postgresql/data"
