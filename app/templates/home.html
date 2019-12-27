@@ -2,6 +2,21 @@
 
 {% block content %}
     <h1>This is from an html form</h1>
-
     <p>Template</p>
+<p>
+{{ my_text }}, {{ my_number }}
+</p>
+
+<ul>
+{% for item in my_list %}
+  {% if item == 223 %}
+    <li>{{ forloop.counter }} - {{ item|add:10 }}</li>
+  {% else %}
+  <!-- possibly elif, too -->
+    <li>{{ forloop.counter }} - {{ item }}</li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+
 {% endblock content%}
