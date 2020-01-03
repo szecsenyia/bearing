@@ -4,6 +4,7 @@ from .forms import ProductForm, RawProductForm
 
 # Create your views here.
 
+
 def product_create_view(request):
     my_form = RawProductForm()
     if request.method == "POST":

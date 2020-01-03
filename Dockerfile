@@ -12,6 +12,8 @@ ENV PYTHONUNBUFFERED 1
 RUN pip3 install --no-cache-dir  Django==2.1.3
 RUN pip3 install --no-cache-dir  djangorestframework==3.9.0
 RUN pip3 install --no-cache-dir  psycopg2-binary==2.8.4
+# django-admin miatt kell ez:
+ENV DJANGO_SETTINGS_MODULE app.settings
 
 COPY ./app /app
 WORKDIR /app
